@@ -1042,7 +1042,7 @@
 	<glm/gtc/matrix_transform.hpp>
 	<Object.h>
 
-1761221722 source:c:\www\guilherme\cg\glfw_cubo_oo\main.cpp
+1761425541 source:c:\www\guilherme\cg\glfw_cubo_oo\main.cpp
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 	<glm/glm.hpp>
@@ -1051,7 +1051,7 @@
 	<Shader.h>
 	<Application.h>
 	<Cube.h>
-	<Sphere.h>
+	<Closet.h>
 	<Texture.h>
 	<iostream>
 
@@ -2112,10 +2112,62 @@
 	<glm/gtc/matrix_transform.hpp>
 	<Object.h>
 
-1761221705 source:c:\www\guilherme\cg\glfw_cubo_oo\src\sphere.cpp
+1761222750 source:c:\www\guilherme\cg\glfw_cubo_oo\src\sphere.cpp
 	"Sphere.h"
 	<vector>
 	<cmath>
 	<glm/gtc/constants.hpp>
 	<iostream>
+
+1761243379 source:c:\www\guilherme\cg\glfw_cubo_oo\src\table.cpp
+	"Table.h"
+	"Cube.h"
+	"Cylinder.h"
+
+1761242468 c:\www\guilherme\cg\glfw_cubo_oo\include\table.h
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"Object.h"
+	"Shader.h"
+	<vector>
+	<memory>
+
+1761244367 c:\www\guilherme\cg\glfw_cubo_oo\include\chair.h
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"Object.h"
+	"Shader.h"
+	<vector>
+	<memory>
+
+1761244956 source:c:\www\guilherme\cg\glfw_cubo_oo\src\chair.cpp
+	"Chair.h"
+	"Cube.h"
+	"Cylinder.h"
+
+1761246832 source:c:\www\guilherme\cg\glfw_cubo_oo\src\lighting.cpp
+	"Lighting.h"
+	"Sphere.h"
+	"Cube.h"
+	"Cylinder.h"
+
+1761245557 c:\www\guilherme\cg\glfw_cubo_oo\include\lighting.h
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"Object.h"
+	"Shader.h"
+	<vector>
+	<memory>
+
+1761425286 c:\www\guilherme\cg\glfw_cubo_oo\include\closet.h
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"Object.h"
+	"Shader.h"
+	<vector>
+	<memory>
+
+1761425601 source:c:\www\guilherme\cg\glfw_cubo_oo\src\closet.cpp
+	"Closet.h"
+	"Cube.h"
 

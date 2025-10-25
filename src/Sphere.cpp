@@ -5,21 +5,13 @@
 #include <iostream>
 
 const float SPHERE_RADIUS = 0.5f;
-const int SECTOR_COUNT = 36; // Divisões ao redor do eixo Y (Longitude)
-const int STACK_COUNT = 18;  // Divisões ao longo do eixo Y (Latitude)
+const int SECTOR_COUNT = 36;
+const int STACK_COUNT = 18;
 
-// Vetor para armazenar os vértices (Simulando o membro 'vertices')
 std::vector<float> sphereVertices;
-// Contador de Vértices para o glDrawArrays (Simulando o membro 'drawCount')
 int globalDrawCount = 0;
 
-
-// ====================================================================
-// Geração de Vértices
-// ====================================================================
-
 void generateSphereVertices() {
-    // 1. Geração da Matriz de Pontos (Vertices + TexCoords)
     sphereVertices.clear();
 
     const float PI = glm::pi<float>();
@@ -103,10 +95,9 @@ void Sphere::init() {
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sphereVertices.size() * sizeof(float), sphereVertices.data(), GL_STATIC_DRAW);
 
-    // position
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
-    // tex coords
+
     glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
 

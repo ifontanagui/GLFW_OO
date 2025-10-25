@@ -6,7 +6,7 @@
 #include <Shader.h>
 #include <Application.h>
 #include <Cube.h>
-#include <Sphere.h>
+#include <Closet.h>
 #include <Texture.h>
 #include <iostream>
 
@@ -26,17 +26,23 @@ int main() {
     shader.setInt("texture1", 0);
     shader.setInt("texture2", 1);
 
-    // Cria cubos com posições diferentes
-    /*Cube cube2(glm::vec3(2.0f, 0.0f, -2.5f));
-    Cube cube3(glm::vec3(-2.0f, 1.0f, -4.0f));
-    Cube cube4(glm::vec3(-3.0f, -1.0f, 3.0f));
-    Cube cube5(glm::vec3(-4.0f, 0.0f, 0.0f));*/
+    // Paredes da Casa
+    Cube cube1(glm::vec3(6.9f, -2.0f, -2.5f));
+    Cube cube2(glm::vec3(2.5f, 0.5f, -2.5f));
+    Cube cube3(glm::vec3(0.0f, -4.5f, -2.5f));
+    Cube cube4(glm::vec3(2.0f, -3.25f, -2.5f));
+    Cube cube5(glm::vec3(2.0f, -0.25f, -2.5f));
+    Cube cube6(glm::vec3(-7.0f, 0.4f, -2.5f));
+    Cube cube7(glm::vec3(-1.1f, 5.5f, -2.5f));
+    Cube cube8(glm::vec3(4.75f,4.5f, -2.5f));
+    Cube cube9(glm::vec3(4.75f, 1.25f, -2.5f));
+    Cube cube10(glm::vec3(-5.5f, 0.5f, -2.5f));
 
-    Sphere banri(glm::vec3(0.0f, 0.0f, 0.0f));
+    Closet banri(glm::vec3(0.0f, 0.0f, 0.0f), 90.0f);
     banri.scale = glm::vec3(2.5f, 2.5f, 2.5f);
 
     // Ativa depth test
-    //glEnable(GL_DEPTH_TEST);
+    glEnable(GL_DEPTH_TEST);
 
     // Loop principal
     while (!glfwWindowShouldClose(app.getWindow())) {
@@ -53,13 +59,6 @@ int main() {
 
         shader.use();
 
-        glm::mat4 model = glm::mat4(1.0f);
-        float angle = 20.0f;
-        model = glm::rotate(model, (angle * (float) glfwGetTime()) / 20, glm::vec3(0.5f, 0.8f, 0.5f));
-        //model = glm::rotate(model, -20.0f, glm::vec3(0.0f, 0.3f, 0.0f));
-
-        shader.setMat4("model", model);
-
         // Configura view e projection
         glm::mat4 projection = glm::perspective(glm::radians(45.0f),
                                                 800.0f / 600.0f,
@@ -73,32 +72,38 @@ int main() {
         tex2.bind(1);
 
 
+        glm::mat4 model = glm::mat4(2.0f);
+        float angle = 20.0f;
+        model = glm::rotate(model, (angle * (float) glfwGetTime()) / 20, glm::vec3(3.5f, -3.25f, 0.75f));
+
+        shader.setMat4("model", model);
+
         // Desenha logo banrisul
 
         banri.draw(shader, model);
 
-        // Desenha cubos
 
-
-        /*model = glm::rotate(model, (angle * (float) glfwGetTime()) / 20, glm::vec3(0.5f, -0.2f, 0.5f));
-        shader.setMat4("model", model);
+        /*shader.setMat4("model", model);
+        cube1.scale = glm::vec3(0.25f, 5.0f, 3.5f);
+        cube1.draw(shader, model);
+        cube2.scale = glm::vec3(9.0f, 0.25f, 3.5f);
         cube2.draw(shader, model);
-
-        model = glm::rotate(model, (angle * (float) glfwGetTime()) / 5, glm::vec3(1.5f, 4.2f, 0.1f));
-        shader.setMat4("model", model);
+        cube3.scale = glm::vec3(14.0f, 0.25f, 3.5f);
         cube3.draw(shader, model);
-
-        model = glm::rotate(model, (-angle * (float) glfwGetTime()) / 40, glm::vec3(-0.8f, 2.1f, -2.0f));
-        shader.setMat4("model", model);
+        cube4.scale = glm::vec3(0.25f, 2.5f, 3.5f);
         cube4.draw(shader, model);
-
-        model = glm::rotate(model, (angle * (float) glfwGetTime()) / 40, glm::vec3(-0.5f, -0.2f, 1.45f));
-        shader.setMat4("model", model);
-        cube4.draw(shader, model);
-
-        model = glm::mat4(1.0f);
-        model = glm::rotate(model, (angle * (float) glfwGetTime()) / -40, glm::vec3(0.0f, 1.0f, 0.0f));
-        cube5.draw(shader, model);*/
+        cube5.scale = glm::vec3(0.25f, 1.5f, 3.5f);
+        cube5.draw(shader, model);
+        cube6.scale = glm::vec3(0.25f, 10.0f, 3.5f);
+        cube6.draw(shader, model);
+        cube7.scale = glm::vec3(12.0f, 0.25f, 3.5f);
+        cube7.draw(shader, model);
+        cube8.scale = glm::vec3(0.25, 2.0f, 3.5f);
+        cube8.draw(shader, model);
+        cube9.scale = glm::vec3(0.25, 1.5f, 3.5f);
+        cube9.draw(shader, model);
+        cube10.scale = glm::vec3(3.0f, 0.25f, 3.5f);
+        cube10.draw(shader, model);*/
 
         // Swap buffers e eventos
         glfwSwapBuffers(app.getWindow());
