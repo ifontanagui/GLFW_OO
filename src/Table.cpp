@@ -18,31 +18,31 @@ Table::Table(glm::vec3 pos, float angle)
 
 void Table::init() {
     parts.push_back(std::make_unique<Cube>(
-        glm::vec3(0.0f, 0.0f, 0.0f),     // posição
+        glm::vec3(0.0f, 0.0f, 0.75f),     // posição
         glm::vec3(1.0f, 1.0f, 1.0f),      // rotação (eixo)
         glm::vec3(2.0f, 2.0f, 0.2f),      // escala
         0   // Angulo
     ));
     parts.push_back(std::make_unique<Cylinder>(
-        glm::vec3(0.75f, 0.75f, 0.75f),     // posição
+        glm::vec3(0.75f, 0.75f, 0.0f),     // posição
         glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
         glm::vec3(0.2f, 1.5f, 0.2f),      // escala
         90  // Angulo
     ));
     parts.push_back(std::make_unique<Cylinder>(
-        glm::vec3(-0.75f, 0.75f, 0.75f),     // posição
+        glm::vec3(-0.75f, 0.75f, 0.0f),     // posição
         glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
         glm::vec3(0.2f, 1.5f, 0.2f),      // escala
         90  // Angulo
     ));
     parts.push_back(std::make_unique<Cylinder>(
-        glm::vec3(0.75f, -0.75f, 0.75f),     // posição
+        glm::vec3(0.75f, -0.75f, 0.0f),     // posição
         glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
         glm::vec3(0.2f, 1.5f, 0.2f),      // escala
         90  // Angulo
     ));
     parts.push_back(std::make_unique<Cylinder>(
-        glm::vec3(-0.75f, -0.75f, 0.75f),     // posição
+        glm::vec3(-0.75f, -0.75f, 0.0f),     // posição
         glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
         glm::vec3(0.2f, 1.5f, 0.2f),      // escala
         90  // Angulo

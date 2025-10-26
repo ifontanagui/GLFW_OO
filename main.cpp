@@ -8,9 +8,14 @@
 #include <Texture.h>
 #include <iostream>
 #include <Cube.h>
-#include <Sofa.h>
-#include <Lighting.h>
-#include <Countertop.h>
+//
+#include <Sofa.h>               //1
+#include <Lighting.h>           //2
+#include <Countertop.h>         //3
+#include <Table.h>              //4
+#include <Chair.h>              //5
+#include <Refrigerator.h>       //6
+#include <Closet.h>             //7
 
 
 int main() {
@@ -29,7 +34,7 @@ int main() {
     shader.setInt("texture1", 0);
     //shader.setInt("texture2", 1);
 
-    // Paredes da Casa
+    // Paredes
     Cube cube1(glm::vec3(6.9f, -2.0f, -2.5f));
     Cube cube2(glm::vec3(2.5f, 0.5f, -2.5f));
     Cube cube3(glm::vec3(0.0f, -4.5f, -2.5f));
@@ -41,12 +46,24 @@ int main() {
     Cube cube9(glm::vec3(4.75f, 1.25f, -2.5f));
     Cube cube10(glm::vec3(-5.5f, 0.5f, -2.5f));
 
+    // Sala
     Sofa sofa1(glm::vec3(0.0f, 1.0f, -4.0f), 2.0f);
     Sofa sofa2(glm::vec3(2.5f, 1.0f, -4.0f), 2.0f);
     Sofa sofa3(glm::vec3(1.0f, 5.0f, -4.0f), 0.0f);
     Lighting ligh1(glm::vec3(1.3f, 1.0f, -3.5f));
 
-    Countertop ctop1(glm::vec3(-6.6f, 1.5f, -3.9f), 1.0f);
+    // Cozinha
+    Countertop ctop1(glm::vec3(-6.55f, 2.5f, -3.9f), 1.0f);
+    Table table1(glm::vec3(-3.5f, 3.0f, -3.8f));
+    Chair chair1(glm::vec3(-4.0f, 3.8f, -4.0f), 0.0f);
+    Chair chair2(glm::vec3(-3.0f, 3.8f, -4.0f), 0.0f);
+    Chair chair3(glm::vec3(-3.0f, 2.25f, -4.0f), 2.0f);
+    Chair chair4(glm::vec3(-4.0f, 2.25f, -4.0f), 2.0f);
+    Refrigerator ref1(glm::vec3(-6.55f, 4.8f, -3.5f), 1.0f);
+    Closet closet1(glm::vec3(-6.55f, 2.2f, -2.3f), 1.0f);
+
+    //Quarto
+
 
 
     // Ativa depth test
@@ -82,7 +99,7 @@ int main() {
 
         float angle = 15.6f;
         glm::mat4 model = glm::mat4(2.0f);
-        model = glm::rotate(model, (angle * (float) glfwGetTime()) / 20, glm::vec3(3.5f, -3.25f, 0.75f));
+        //model = glm::rotate(model, (angle * (float) glfwGetTime()) / 20, glm::vec3(3.5f, -3.25f, 0.75f));
 
 
         cube1.scale = glm::vec3(0.25f, 5.0f, 3.5f);
@@ -101,7 +118,14 @@ int main() {
         sofa3.scale = glm::vec3(1.5f, 0.5f, 0.5f);
         ligh1.scale = glm::vec3(0.4f, 0.4f, 0.4f);
 
-        ctop1.scale = glm::vec3(0.6f, 0.6f, 0.6f);
+        ctop1.scale = glm::vec3(0.7f, 1.2f, 0.6f);
+        table1.scale = glm::vec3(1.2f, 0.5f, 0.6f);
+        chair1.scale = glm::vec3(0.3f, 0.3f, 0.3f);
+        chair2.scale = glm::vec3(0.3f, 0.3f, 0.3f);
+        chair3.scale = glm::vec3(0.3f, 0.3f, 0.3f);
+        chair4.scale = glm::vec3(0.3f, 0.3f, 0.3f);
+        ref1.scale = glm::vec3(0.7f, 0.7f, 0.7f);
+        closet1.scale = glm::vec3(0.5f, 1.4f, 0.2f);
 
         shader.setMat4("model", model);
         cube1.draw(shader, model);
@@ -121,6 +145,13 @@ int main() {
         ligh1.draw(shader, model);
 
         ctop1.draw(shader, model);
+        table1.draw(shader, model);
+        chair1.draw(shader, model);
+        chair2.draw(shader, model);
+        chair3.draw(shader, model);
+        chair4.draw(shader, model);
+        ref1.draw(shader, model);
+        closet1.draw(shader, model);
 
 
         // Swap buffers e eventos

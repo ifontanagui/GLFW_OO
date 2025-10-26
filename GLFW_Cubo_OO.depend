@@ -1042,7 +1042,7 @@
 	<glm/gtc/matrix_transform.hpp>
 	<Object.h>
 
-1761491857 source:c:\www\guilherme\cg\glfw_cubo_oo\main.cpp
+1761501837 source:c:\www\guilherme\cg\glfw_cubo_oo\main.cpp
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 	<glm/glm.hpp>
@@ -1056,6 +1056,9 @@
 	<Sofa.h>
 	<Lighting.h>
 	<Countertop.h>
+	<Table.h>
+	<Chair.h>
+	<Refrigerator.h>
 
 1761178303 c:\www\guilherme\cg\glfw_cubo_oo\include\shader.h
 	<GL/glew.h>
@@ -2121,7 +2124,7 @@
 	<glm/gtc/constants.hpp>
 	<iostream>
 
-1761243379 source:c:\www\guilherme\cg\glfw_cubo_oo\src\table.cpp
+1761498627 source:c:\www\guilherme\cg\glfw_cubo_oo\src\table.cpp
 	"Table.h"
 	"Cube.h"
 	"Cylinder.h"
@@ -2142,7 +2145,7 @@
 	<vector>
 	<memory>
 
-1761244956 source:c:\www\guilherme\cg\glfw_cubo_oo\src\chair.cpp
+1761501081 source:c:\www\guilherme\cg\glfw_cubo_oo\src\chair.cpp
 	"Chair.h"
 	"Cube.h"
 	"Cylinder.h"
@@ -2248,4 +2251,16 @@
 	"Sofa.h"
 	"Cube.h"
 	"Cylinder.h"
+
+1761501950 source:c:\www\guilherme\cg\glfw_cubo_oo\src\refrigerator.cpp
+	"Refrigerator.h"
+	"Cube.h"
+
+1761501639 c:\www\guilherme\cg\glfw_cubo_oo\include\refrigerator.h
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"Object.h"
+	"Shader.h"
+	<vector>
+	<memory>
 
