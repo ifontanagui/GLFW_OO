@@ -5,10 +5,13 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <Shader.h>
 #include <Application.h>
-#include <Cube.h>
-#include <Sofa.h>
 #include <Texture.h>
 #include <iostream>
+#include <Cube.h>
+#include <Sofa.h>
+#include <Lighting.h>
+#include <Countertop.h>
+
 
 int main() {
     // Cria janela e inicializa OpenGL
@@ -20,11 +23,11 @@ int main() {
     shader.use();
 
     // Carrega texturas
-    Texture tex1("pedra-28.jpg");
-    Texture tex2("opengl.png");  // logo OpenGL com alpha
+    Texture tex1("quadri.jpg");
+    //Texture tex2("opengl.png");  // logo OpenGL com alpha
 
     shader.setInt("texture1", 0);
-    shader.setInt("texture2", 1);
+    //shader.setInt("texture2", 1);
 
     // Paredes da Casa
     Cube cube1(glm::vec3(6.9f, -2.0f, -2.5f));
@@ -38,8 +41,13 @@ int main() {
     Cube cube9(glm::vec3(4.75f, 1.25f, -2.5f));
     Cube cube10(glm::vec3(-5.5f, 0.5f, -2.5f));
 
-    Sofa banri(glm::vec3(0.0f, 0.0f, 0.0f), 90.0f);
-    banri.scale = glm::vec3(2.5f, 2.5f, 2.5f);
+    Sofa sofa1(glm::vec3(0.0f, 1.0f, -4.0f), 2.0f);
+    Sofa sofa2(glm::vec3(2.5f, 1.0f, -4.0f), 2.0f);
+    Sofa sofa3(glm::vec3(1.0f, 5.0f, -4.0f), 0.0f);
+    Lighting ligh1(glm::vec3(1.3f, 1.0f, -3.5f));
+
+    Countertop ctop1(glm::vec3(-6.6f, 1.5f, -3.9f), 1.0f);
+
 
     // Ativa depth test
     glEnable(GL_DEPTH_TEST);
@@ -69,43 +77,51 @@ int main() {
 
         // Bind texturas
         tex1.bind(0);
-        tex2.bind(1);
+        //tex2.bind(1);
 
 
-        glm::mat4 model = glm::mat4(2.0f);
         float angle = 15.6f;
-        //model = glm::rotate(model, angle, glm::vec3(1.0f, 0.0f, 0.0f));
-
+        glm::mat4 model = glm::mat4(2.0f);
         model = glm::rotate(model, (angle * (float) glfwGetTime()) / 20, glm::vec3(3.5f, -3.25f, 0.75f));
 
-        shader.setMat4("model", model);
 
-        // Desenha logo banrisul
-
-        banri.draw(shader, model);
-
-
-        /*shader.setMat4("model", model);
         cube1.scale = glm::vec3(0.25f, 5.0f, 3.5f);
-        cube1.draw(shader, model);
         cube2.scale = glm::vec3(9.0f, 0.25f, 3.5f);
-        cube2.draw(shader, model);
         cube3.scale = glm::vec3(14.0f, 0.25f, 3.5f);
-        cube3.draw(shader, model);
         cube4.scale = glm::vec3(0.25f, 2.5f, 3.5f);
-        cube4.draw(shader, model);
         cube5.scale = glm::vec3(0.25f, 1.5f, 3.5f);
-        cube5.draw(shader, model);
         cube6.scale = glm::vec3(0.25f, 10.0f, 3.5f);
-        cube6.draw(shader, model);
         cube7.scale = glm::vec3(12.0f, 0.25f, 3.5f);
-        cube7.draw(shader, model);
         cube8.scale = glm::vec3(0.25, 2.0f, 3.5f);
-        cube8.draw(shader, model);
         cube9.scale = glm::vec3(0.25, 1.5f, 3.5f);
-        cube9.draw(shader, model);
         cube10.scale = glm::vec3(3.0f, 0.25f, 3.5f);
-        cube10.draw(shader, model);*/
+
+        sofa1.scale = glm::vec3(0.5f, 0.5f, 0.5f);
+        sofa2.scale = glm::vec3(0.5f, 0.5f, 0.5f);
+        sofa3.scale = glm::vec3(1.5f, 0.5f, 0.5f);
+        ligh1.scale = glm::vec3(0.4f, 0.4f, 0.4f);
+
+        ctop1.scale = glm::vec3(0.6f, 0.6f, 0.6f);
+
+        shader.setMat4("model", model);
+        cube1.draw(shader, model);
+        cube2.draw(shader, model);
+        cube3.draw(shader, model);
+        cube4.draw(shader, model);
+        cube5.draw(shader, model);
+        cube6.draw(shader, model);
+        cube7.draw(shader, model);
+        cube8.draw(shader, model);
+        cube9.draw(shader, model);
+        cube10.draw(shader, model);
+
+        sofa1.draw(shader, model);
+        sofa2.draw(shader, model);
+        sofa3.draw(shader, model);
+        ligh1.draw(shader, model);
+
+        ctop1.draw(shader, model);
+
 
         // Swap buffers e eventos
         glfwSwapBuffers(app.getWindow());

@@ -1042,7 +1042,7 @@
 	<glm/gtc/matrix_transform.hpp>
 	<Object.h>
 
-1761443130 source:c:\www\guilherme\cg\glfw_cubo_oo\main.cpp
+1761491857 source:c:\www\guilherme\cg\glfw_cubo_oo\main.cpp
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 	<glm/glm.hpp>
@@ -1050,10 +1050,12 @@
 	<glm/gtc/type_ptr.hpp>
 	<Shader.h>
 	<Application.h>
-	<Cube.h>
-	<Sofa.h>
 	<Texture.h>
 	<iostream>
+	<Cube.h>
+	<Sofa.h>
+	<Lighting.h>
+	<Countertop.h>
 
 1761178303 c:\www\guilherme\cg\glfw_cubo_oo\include\shader.h
 	<GL/glew.h>
@@ -2192,7 +2194,7 @@
 	<vector>
 	<memory>
 
-1761436457 source:c:\www\guilherme\cg\glfw_cubo_oo\src\countertop.cpp
+1761492099 source:c:\www\guilherme\cg\glfw_cubo_oo\src\countertop.cpp
 	"Countertop.h"
 	"Cube.h"
 
@@ -2241,4 +2243,9 @@
 	"Shader.h"
 	<vector>
 	<memory>
+
+1761489005 source:c:\www\guilherme\cg\glfw_cubo_oo\src\sofa.cpp
+	"Sofa.h"
+	"Cube.h"
+	"Cylinder.h"
 
