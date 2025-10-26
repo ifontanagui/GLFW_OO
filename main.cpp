@@ -6,7 +6,7 @@
 #include <Shader.h>
 #include <Application.h>
 #include <Cube.h>
-#include <Closet.h>
+#include <Sofa.h>
 #include <Texture.h>
 #include <iostream>
 
@@ -38,7 +38,7 @@ int main() {
     Cube cube9(glm::vec3(4.75f, 1.25f, -2.5f));
     Cube cube10(glm::vec3(-5.5f, 0.5f, -2.5f));
 
-    Closet banri(glm::vec3(0.0f, 0.0f, 0.0f), 90.0f);
+    Sofa banri(glm::vec3(0.0f, 0.0f, 0.0f), 90.0f);
     banri.scale = glm::vec3(2.5f, 2.5f, 2.5f);
 
     // Ativa depth test
@@ -73,7 +73,9 @@ int main() {
 
 
         glm::mat4 model = glm::mat4(2.0f);
-        float angle = 20.0f;
+        float angle = 15.6f;
+        //model = glm::rotate(model, angle, glm::vec3(1.0f, 0.0f, 0.0f));
+
         model = glm::rotate(model, (angle * (float) glfwGetTime()) / 20, glm::vec3(3.5f, -3.25f, 0.75f));
 
         shader.setMat4("model", model);

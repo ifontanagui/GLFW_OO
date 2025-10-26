@@ -18,11 +18,11 @@ Lighting::Lighting(glm::vec3 pos, float angle)
 }
 
 void Lighting::init() {
-    parts.push_back(std::make_unique<Sphere>(
+    parts.push_back(std::make_unique<Cylinder>(
         glm::vec3(0.0f, 0.0f, 1.0f),     // posição
-        glm::vec3(0.0f, 0.0f, 0.0f),      // rotação (eixo)
+        glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
         glm::vec3(1.0f, 1.0f, 1.0f),      // escala
-        0  // Angulo
+        90  // Angulo
     ));
     parts.push_back(std::make_unique<Cylinder>(
         glm::vec3(0.0f, 0.0f, -0.5f),     // posição

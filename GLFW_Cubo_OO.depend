@@ -1042,7 +1042,7 @@
 	<glm/gtc/matrix_transform.hpp>
 	<Object.h>
 
-1761425541 source:c:\www\guilherme\cg\glfw_cubo_oo\main.cpp
+1761443130 source:c:\www\guilherme\cg\glfw_cubo_oo\main.cpp
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 	<glm/glm.hpp>
@@ -1051,7 +1051,7 @@
 	<Shader.h>
 	<Application.h>
 	<Cube.h>
-	<Closet.h>
+	<Sofa.h>
 	<Texture.h>
 	<iostream>
 
@@ -2145,7 +2145,7 @@
 	"Cube.h"
 	"Cylinder.h"
 
-1761246832 source:c:\www\guilherme\cg\glfw_cubo_oo\src\lighting.cpp
+1761442831 source:c:\www\guilherme\cg\glfw_cubo_oo\src\lighting.cpp
 	"Lighting.h"
 	"Sphere.h"
 	"Cube.h"
@@ -2170,4 +2170,75 @@
 1761425601 source:c:\www\guilherme\cg\glfw_cubo_oo\src\closet.cpp
 	"Closet.h"
 	"Cube.h"
+
+1761435975 c:\www\guilherme\cg\glfw_cubo_oo\include\cabinets.h
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"Object.h"
+	"Shader.h"
+	<vector>
+	<memory>
+
+1761436190 source:c:\www\guilherme\cg\glfw_cubo_oo\src\cabinets.cpp
+	"Cabinets.h"
+	"Cube.h"
+	"Cylinder.h"
+
+1761436381 c:\www\guilherme\cg\glfw_cubo_oo\include\countertop.h
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"Object.h"
+	"Shader.h"
+	<vector>
+	<memory>
+
+1761436457 source:c:\www\guilherme\cg\glfw_cubo_oo\src\countertop.cpp
+	"Countertop.h"
+	"Cube.h"
+
+1761438352 source:c:\www\guilherme\cg\glfw_cubo_oo\src\bed.cpp
+	"Bed.h"
+	"Cube.h"
+	"Cylinder.h"
+
+1761437320 c:\www\guilherme\cg\glfw_cubo_oo\include\bed.h
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"Object.h"
+	"Shader.h"
+	<vector>
+	<memory>
+
+1761439219 source:c:\www\guilherme\cg\glfw_cubo_oo\src\toilet.cpp
+	"Toilet.h"
+	"Cylinder.h"
+	"Cube.h"
+
+1761438994 c:\www\guilherme\cg\glfw_cubo_oo\include\toilet.h
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"Object.h"
+	"Shader.h"
+	<vector>
+	<memory>
+
+1761442654 c:\www\guilherme\cg\glfw_cubo_oo\include\sink.h
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"Object.h"
+	"Shader.h"
+	<vector>
+	<memory>
+
+1761442676 source:c:\www\guilherme\cg\glfw_cubo_oo\src\sink.cpp
+	"Sink.h"
+	"Cube.h"
+
+1761443099 c:\www\guilherme\cg\glfw_cubo_oo\include\sofa.h
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"Object.h"
+	"Shader.h"
+	<vector>
+	<memory>
 
