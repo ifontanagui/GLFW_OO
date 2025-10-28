@@ -16,11 +16,24 @@ Sink::Sink(glm::vec3 pos, float angle)
 }
 
 void Sink::init() {
+    float a = 0.0f;
+    switch ((int)angle) {
+    case 1:
+        a = 90.0f;
+        break;
+    case 2:
+        a = 180.0f;
+        break;
+    case 3:
+        a = 270.0f;
+        break;
+    }
+
     parts.push_back(std::make_unique<Cube>(
         glm::vec3(0.0f, 0.0f, 0.0f),     // posição
-        glm::vec3(0.0f, 0.0f, 0.0f),      // rotação (eixo)
-        glm::vec3(0.8f, 1.3f, 1.0f),      // escala
-        0   // Angulo
+        glm::vec3(0.0f, 0.0f, 1.0f),      // rotação (eixo)
+        glm::vec3(2.8f, 1.0f, 1.6f),      // escala
+        a  // Angulo
     ));
 }
 

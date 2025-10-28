@@ -17,36 +17,70 @@ Bed::Bed(glm::vec3 pos, float angle)
 }
 
 void Bed::init() {
-    parts.push_back(std::make_unique<Cube>(
-        glm::vec3(0.0f, 0.0f, 0.0f),     // posição
-        glm::vec3(0.0f, 0.0f, 0.0f),      // rotação (eixo)
-        glm::vec3(3.0f, 1.0f, 2.2f),      // escala
-        0   // Angulo
-    ));
-    parts.push_back(std::make_unique<Cylinder>(
-        glm::vec3(1.3f, -0.55f, 0.9f),     // posição
-        glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
-        glm::vec3(0.2f, 0.3f, 0.2f),      // escala
-        0  // Angulo
-    ));
-    parts.push_back(std::make_unique<Cylinder>(
-        glm::vec3(-1.3f, -0.55f, 0.9f),     // posição
-        glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
-        glm::vec3(0.2f, 0.3f, 0.2f),      // escala
-        0  // Angulo
-    ));
-    parts.push_back(std::make_unique<Cylinder>(
-        glm::vec3(1.3f, -0.55f, -0.9f),     // posição
-        glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
-        glm::vec3(0.2f, 0.3f, 0.2f),      // escala
-        0  // Angulo
-    ));
-    parts.push_back(std::make_unique<Cylinder>(
-        glm::vec3(-1.3f, -0.55f, -0.9f),     // posição
-        glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
-        glm::vec3(0.2f, 0.3f, 0.2f),      // escala
-        0  // Angulo
-    ));
+    if (angle == 0.0f || angle == 2.0f) {
+        parts.push_back(std::make_unique<Cube>(
+            glm::vec3(0.0f, 0.0f, 0.6f),     // posição
+            glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
+            glm::vec3(3.0f, 1.0f, 2.2f),      // escala
+            90   // Angulo
+        ));
+        parts.push_back(std::make_unique<Cylinder>(
+            glm::vec3(1.3f, 0.9f, 0.0f),     // posição
+            glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
+            glm::vec3(0.2f, 0.3f, 0.2f),      // escala
+            90  // Angulo
+        ));
+        parts.push_back(std::make_unique<Cylinder>(
+            glm::vec3(-1.3f, 0.9f, 0.0f),     // posição
+            glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
+            glm::vec3(0.2f, 0.3f, 0.2f),      // escala
+            90  // Angulo
+        ));
+        parts.push_back(std::make_unique<Cylinder>(
+            glm::vec3(1.3f, -0.9f, 0.0f),     // posição
+            glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
+            glm::vec3(0.2f, 0.3f, 0.2f),      // escala
+            90  // Angulo
+        ));
+        parts.push_back(std::make_unique<Cylinder>(
+            glm::vec3(-1.3f, -0.9f, 0.0f),     // posição
+            glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
+            glm::vec3(0.2f, 0.3f, 0.2f),      // escala
+            90  // Angulo
+        ));
+    }
+    else if (angle == 1.0f || angle == 3.0f) {
+        parts.push_back(std::make_unique<Cube>(
+            glm::vec3(0.0f, 0.0f, 0.6f),     // posição
+            glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
+            glm::vec3(2.2f, 1.0f, 3.0f),      // escala
+            90   // Angulo
+        ));
+        parts.push_back(std::make_unique<Cylinder>(
+            glm::vec3(0.9f, 1.3f, 0.0f),     // posição
+            glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
+            glm::vec3(0.2f, 0.3f, 0.2f),      // escala
+            90  // Angulo
+        ));
+        parts.push_back(std::make_unique<Cylinder>(
+            glm::vec3(0.9f, -1.3f, 0.0f),     // posição
+            glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
+            glm::vec3(0.2f, 0.3f, 0.2f),      // escala
+            90  // Angulo
+        ));
+        parts.push_back(std::make_unique<Cylinder>(
+            glm::vec3(-0.9f, 1.3f, 0.0f),     // posição
+            glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
+            glm::vec3(0.2f, 0.3f, 0.2f),      // escala
+            90  // Angulo
+        ));
+        parts.push_back(std::make_unique<Cylinder>(
+            glm::vec3(-0.9f, -1.3f, 0.0f),     // posição
+            glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
+            glm::vec3(0.2f, 0.3f, 0.2f),      // escala
+            90  // Angulo
+        ));
+    }
 }
 
 void Bed::draw(Shader &shader, glm::mat4 model) {
