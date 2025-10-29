@@ -111,9 +111,9 @@ int main() {
         //tex2.bind(1);
 
 
-        float angle = 15.6f;
         glm::mat4 model = glm::mat4(2.0f);
-        model = glm::rotate(model, (angle * (float) glfwGetTime()) / 20, glm::vec3(3.5f, -3.25f, 0.75f));
+        //float angle = 15.6f;
+        //model = glm::rotate(model, (angle * (float) glfwGetTime()) / 20, glm::vec3(3.5f, -3.25f, 0.75f));
 
 
         // Paredes
