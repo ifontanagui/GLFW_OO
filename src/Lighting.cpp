@@ -3,6 +3,9 @@
 #include "Cube.h"
 #include "Cylinder.h"
 
+extern unsigned int lightTexture;
+extern unsigned int woodTexture;
+
 Lighting::Lighting(glm::vec3 pos, glm::vec3 rot, glm::vec3 scl, float angle)
     : Object(pos, rot, scl, angle)
 {
@@ -39,12 +42,14 @@ void Lighting::init() {
 }
 
 void Lighting::draw(Shader &shader, glm::mat4 model) {
-
     model = glm::translate(model, position);
     model = glm::scale(model, scale);
 
-    for (auto &part : parts) {
-        part->draw(shader, model);
-    }
+    glBindTexture(GL_TEXTURE_2D, lightTexture);
+    parts[0]->draw(shader, model);
+
+    glBindTexture(GL_TEXTURE_2D, woodTexture);
+    parts[1]->draw(shader, model);
+    parts[2]->draw(shader, model);
 }
 

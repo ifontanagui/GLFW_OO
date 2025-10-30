@@ -25,8 +25,10 @@
 
 unsigned int woodTexture;
 unsigned int steelTexture;
+unsigned int fabricTexture;
+unsigned int lightTexture;
 unsigned int quadriTexture;
-
+unsigned int ceramicsTexture;
 
 float angulo_visao = 45.0f;
 float near_plane = 0.1f;
@@ -36,7 +38,7 @@ float sensitivity = 0.2f;
 float yaw = -90.0f;
 float pitch = 0.0f;
 
-glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 15.0f);
+glm::vec3 cameraPos = glm::vec3(-3.0f, -2.0f, 0.0f);
 glm::vec3 cameraFront = glm::vec3(-1.0f, 0.0f, 0.0f);
 glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
 
@@ -61,8 +63,18 @@ int main() {
     if (!woodTexture)
         std::cout << "Failed to load wood texture!\n";
     steelTexture = loadTexture("steel.jpg");
-    if (!woodTexture)
+    if (!steelTexture)
         std::cout << "Failed to load steel texture!\n";
+    fabricTexture = loadTexture("fabric.jpg");
+    if (!fabricTexture)
+        std::cout << "Failed to load fabric texture!\n";
+    lightTexture = loadTexture("light.jpg");
+    if (!lightTexture)
+        std::cout << "Failed to load light texture!\n";
+    ceramicsTexture = loadTexture("ceramics.jpg");
+    if (!ceramicsTexture)
+        std::cout << "Failed to load ceramics texture!\n";
+
 
     shader.setInt("texture1", 0);
 

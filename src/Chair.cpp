@@ -2,6 +2,9 @@
 #include "Cube.h"
 #include "Cylinder.h"
 
+extern unsigned int woodTexture;
+extern unsigned int steelTexture;
+
 Chair::Chair(glm::vec3 pos, glm::vec3 rot, glm::vec3 scl, float angle)
     : Object(pos, rot, scl, angle)
 {
@@ -155,12 +158,15 @@ void Chair::init() {
 }
 
 void Chair::draw(Shader &shader, glm::mat4 model) {
-
     model = glm::translate(model, position);
     model = glm::scale(model, scale);
 
-    for (auto &part : parts) {
-        part->draw(shader, model);
-    }
+    glBindTexture(GL_TEXTURE_2D, woodTexture);
+    parts[0]->draw(shader, model);
+    parts[5]->draw(shader, model);
+
+    glBindTexture(GL_TEXTURE_2D, steelTexture);
+    for (int i = 1; i < 5; i ++)
+        parts[i]->draw(shader, model);
 }
 

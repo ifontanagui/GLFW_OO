@@ -2,6 +2,8 @@
 #include "Cylinder.h"
 #include "Cube.h"
 
+extern unsigned int ceramicsTexture;
+
 Toilet::Toilet(glm::vec3 pos, glm::vec3 rot, glm::vec3 scl, float angle)
     : Object(pos, rot, scl, angle)
 {
@@ -34,10 +36,10 @@ void Toilet::init() {
 }
 
 void Toilet::draw(Shader &shader, glm::mat4 model) {
-
     model = glm::translate(model, position);
     model = glm::scale(model, scale);
 
+    glBindTexture(GL_TEXTURE_2D, ceramicsTexture);
     for (auto &part : parts) {
         part->draw(shader, model);
     }

@@ -58,6 +58,7 @@ void Table::draw(Shader &shader, glm::mat4 model) {
 
     glBindTexture(GL_TEXTURE_2D, woodTexture);
     parts[0]->draw(shader, model);
+
     glBindTexture(GL_TEXTURE_2D, steelTexture);
     for (int i = 1; i < 5; i ++)
         parts[i]->draw(shader, model);

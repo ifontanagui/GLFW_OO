@@ -3,6 +3,8 @@
 #include "Cube.h"
 #include "Cylinder.h"
 
+extern unsigned int steelTexture;
+
 Shower::Shower(glm::vec3 pos, glm::vec3 rot, glm::vec3 scl, float angle)
     : Object(pos, rot, scl, angle)
 {
@@ -33,10 +35,10 @@ void Shower::init() {
 }
 
 void Shower::draw(Shader &shader, glm::mat4 model) {
-
     model = glm::translate(model, position);
     model = glm::scale(model, scale);
 
+    glBindTexture(GL_TEXTURE_2D, steelTexture);
     for (auto &part : parts) {
         part->draw(shader, model);
     }

@@ -2,6 +2,9 @@
 #include "Cube.h"
 #include "Cylinder.h"
 
+extern unsigned int steelTexture;
+extern unsigned int fabricTexture;
+
 Sofa::Sofa(glm::vec3 pos, glm::vec3 rot, glm::vec3 scl, float angle)
     : Object(pos, rot, scl, angle)
 {
@@ -141,12 +144,15 @@ void Sofa::init() {
 }
 
 void Sofa::draw(Shader &shader, glm::mat4 model) {
-
     model = glm::translate(model, position);
     model = glm::scale(model, scale);
 
-    for (auto &part : parts) {
-        part->draw(shader, model);
-    }
+    glBindTexture(GL_TEXTURE_2D, fabricTexture);
+    for (int i = 0; i < 4; i ++)
+        parts[i]->draw(shader, model);
+
+    glBindTexture(GL_TEXTURE_2D, steelTexture);
+    for (int i = 4; i < 8; i ++)
+        parts[i]->draw(shader, model);
 }
 
