@@ -1042,16 +1042,17 @@
 	<glm/gtc/matrix_transform.hpp>
 	<Object.h>
 
-1761779009 source:c:\www\guilherme\cg\glfw_cubo_oo\main.cpp
+1761836079 source:c:\www\guilherme\cg\glfw_cubo_oo\main.cpp
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
+	<iostream>
+	<stb_image.h>
 	<Shader.h>
 	<Application.h>
 	<Texture.h>
-	<iostream>
 	<Cube.h>
 	<Sofa.h>
 	<Lighting.h>
@@ -1073,7 +1074,7 @@
 	<sstream>
 	<iostream>
 
-1761178297 c:\www\guilherme\cg\glfw_cubo_oo\include\application.h
+1761781097 c:\www\guilherme\cg\glfw_cubo_oo\include\application.h
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 	<string>
@@ -2129,7 +2130,7 @@
 	<glm/gtc/constants.hpp>
 	<iostream>
 
-1761498627 source:c:\www\guilherme\cg\glfw_cubo_oo\src\table.cpp
+1761836240 source:c:\www\guilherme\cg\glfw_cubo_oo\src\table.cpp
 	"Table.h"
 	"Cube.h"
 	"Cylinder.h"

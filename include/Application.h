@@ -7,11 +7,12 @@
 
 class Application {
 private:
-    GLFWwindow* window;
     int width, height;
     std::string title;
+    GLFWwindow* window;
 
 public:
+
     Application(int w, int h, const std::string& t);
     ~Application();
 
