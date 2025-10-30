@@ -23,122 +23,122 @@ void Sofa::init() {
 
     if (angle == 0.0f || angle == 2.0f) {
         parts.push_back(std::make_unique<Cube>(
-            glm::vec3(0.0f, 0.0f, 0.0f),     // posi��o
+            glm::vec3(0.0f, 0.0f, 0.0f),     // posição
             glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
             glm::vec3(3.0f, 0.6f, 1.3f),      // escala
-            90   // Angulo
+            0   // Angulo
         ));
         if (angle == 0.0f) {
             parts.push_back(std::make_unique<Cube>(
-                glm::vec3(0.0f, 0.5f, 0.5f),     // posi��o
+                glm::vec3(0.0f, 0.5f, 0.5f),     // posição
                 glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
                 glm::vec3(3.0f, 1.1f, 0.3f),      // escala
-                90   // Angulo
+                0   // Angulo
             ));
         }
         else {
             parts.push_back(std::make_unique<Cube>(
-                glm::vec3(0.0f, -0.5f, 0.5f),     // posi��o
+                glm::vec3(0.0f, 0.5f, -0.5f),     // posição
                 glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
                 glm::vec3(3.0f, 1.1f, 0.3f),      // escala
-                90   // Angulo
+                0   // Angulo
             ));
         }
         parts.push_back(std::make_unique<Cube>(
-            glm::vec3(1.35f, 0.0f, 0.5f),     // posi��o
+            glm::vec3(1.35f, 0.5f, 0.0f),     // posição
             glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
             glm::vec3(0.3f, 1.1f, 1.3f),      // escala
-            90   // Angulo
+            0   // Angulo
         ));
         parts.push_back(std::make_unique<Cube>(
-            glm::vec3(-1.35f, 0.0f, 0.5f),     // posi��o
+            glm::vec3(-1.35f, 0.5f, 0.0f),     // posição
             glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
             glm::vec3(0.3f, 1.1f, 1.3f),      // escala
-            90   // Angulo
+            0   // Angulo
         ));
         parts.push_back(std::make_unique<Cylinder>(
-            glm::vec3(1.3f, 0.45f, -0.4f),     // posi��o
+            glm::vec3(1.3f, -0.4f, 0.45f),     // posição
             glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
             glm::vec3(0.2f, 0.3f, 0.2f),      // escala
-            90  // Angulo
+            0  // Angulo
         ));
         parts.push_back(std::make_unique<Cylinder>(
-            glm::vec3(-1.3f, 0.45f, -0.4f),     // posi��o
+            glm::vec3(-1.3f, -0.4f, 0.45f),     // posição
             glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
             glm::vec3(0.2f, 0.3f, 0.2f),      // escala
-            90  // Angulo
+            0  // Angulo
         ));
         parts.push_back(std::make_unique<Cylinder>(
-            glm::vec3(1.3f, -0.45f, -0.4f),     // posi��o
+            glm::vec3(1.3f, -0.4f, -0.45f),     // posição
             glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
             glm::vec3(0.2f, 0.3f, 0.2f),      // escala
-            90  // Angulo
+            0  // Angulo
         ));
         parts.push_back(std::make_unique<Cylinder>(
-            glm::vec3(-1.3f, -0.45f, -0.4f),     // posi��o
+            glm::vec3(-1.3f, -0.4f, -0.45f),     // posição
             glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
             glm::vec3(0.2f, 0.3f, 0.2f),      // escala
-            90  // Angulo
+            0  // Angulo
         ));
     }
     else if (angle == 1.0f || angle == 3.0f) {
         parts.push_back(std::make_unique<Cube>(
-            glm::vec3(0.0f, 0.0f, 0.0f),     // posi��o
+            glm::vec3(0.0f, 0.0f, 0.0f),     // posição
             glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
             glm::vec3(1.3f, 0.6f, 3.0f),      // escala
-            90   // Angulo
+            0   // Angulo
         ));
         if (angle == 1.0f) {
             parts.push_back(std::make_unique<Cube>(
-                glm::vec3(0.5f, 0.0f, 0.5f),     // posi��o
+                glm::vec3(0.5f, 0.5f, 0.0f),     // posição
                 glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
                 glm::vec3(0.3f, 1.1f, 3.0f),      // escala
-                90   // Angulo
+                0   // Angulo
             ));
         }
         else {
             parts.push_back(std::make_unique<Cube>(
-                glm::vec3(-0.5f, 0.0f, 0.5f),     // posi��o
+                glm::vec3(-0.5f, 0.5f, 0.0f),     // posição
                 glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
                 glm::vec3(0.3f, 1.1f, 3.0f),      // escala
-                90   // Angulo
+                0   // Angulo
             ));
         }
         parts.push_back(std::make_unique<Cube>(
-            glm::vec3(0.0f, 1.35f, 0.5f),     // posi��o
+            glm::vec3(0.0f, 0.3f, 1.35f),     // posição
             glm::vec3(0.0f, 0.0f, 1.0f),      // rotação (eixo)
-            glm::vec3(0.3f, 1.3f, 1.1f),      // escala
-            90   // Angulo
+            glm::vec3(1.3f, 1.1f, 0.3f),      // escala
+            0   // Angulo
         ));
         parts.push_back(std::make_unique<Cube>(
-            glm::vec3(0.0f, -1.35f, 0.5f),     // posi��o
+            glm::vec3(0.0f, 0.3f, -1.35f),     // posição
             glm::vec3(0.0f, 0.0f, 1.0f),      // rotação (eixo)
-            glm::vec3(0.3f, 1.3f, 1.1f),      // escala
-            90   // Angulo
+            glm::vec3(1.3f, 1.1f, 0.3f),      // escala
+            0   // Angulo
         ));
         parts.push_back(std::make_unique<Cylinder>(
-            glm::vec3(0.45f, 1.3f, -0.4f),     // posi��o
+            glm::vec3(0.45f, -0.4f, 1.3f),     // posição
             glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
             glm::vec3(0.2f, 0.3f, 0.2f),      // escala
-            90  // Angulo
+            0  // Angulo
         ));
         parts.push_back(std::make_unique<Cylinder>(
-            glm::vec3(0.45f, -1.3f, -0.4f),     // posi��o
+            glm::vec3(-0.45f, -0.4f, 1.3f),     // posição
             glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
             glm::vec3(0.2f, 0.3f, 0.2f),      // escala
-            90  // Angulo
+            0  // Angulo
         ));
         parts.push_back(std::make_unique<Cylinder>(
-            glm::vec3(-0.45f, 1.3f, -0.4f),     // posi��o
+            glm::vec3(0.45f, -0.4f, -1.3f),     // posição
             glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
             glm::vec3(0.2f, 0.3f, 0.2f),      // escala
-            90  // Angulo
+            0  // Angulo
         ));
         parts.push_back(std::make_unique<Cylinder>(
-            glm::vec3(-0.45f, -1.3f, -0.4f),     // posi��o
+            glm::vec3(-0.45f, -0.4f, -1.3f),     // posição
             glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
             glm::vec3(0.2f, 0.3f, 0.2f),      // escala
-            90  // Angulo
+            0  // Angulo
         ));
     }
 }

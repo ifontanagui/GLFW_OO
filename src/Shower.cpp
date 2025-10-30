@@ -20,16 +20,38 @@ Shower::Shower(glm::vec3 pos, float angle)
 }
 
 void Shower::init() {
-    parts.push_back(std::make_unique<Cylinder>(
-        glm::vec3(0.0f, 0.0f, 0.0f),     // posição
-        glm::vec3(1.0f, 0.0f, -1.5f),    // rotação (eixo)
-        glm::vec3(0.05f, 0.5f, 0.05f),     // escala
-        90  // Angulo
-    ));
+    if (angle == 0.0f)
+        parts.push_back(std::make_unique<Cylinder>(
+            glm::vec3(0.0f, 0.2f, 0.0f),     // posição
+            glm::vec3(2.0f, 0.0f, 0.0f),    // rotação (eixo)
+            glm::vec3(0.05f, 0.6, 0.05f),     // escala
+            45  // Angulo
+        ));
+    else if (angle == 1.0f)
+        parts.push_back(std::make_unique<Cylinder>(
+            glm::vec3(0.0f, 0.2f, 0.0f),     // posição
+            glm::vec3(0.0f, 0.0f, 2.0f),    // rotação (eixo)
+            glm::vec3(0.05f, 0.6, 0.05f),     // escala
+            45  // Angulo
+        ));
+    else if (angle == 2.0f)
+        parts.push_back(std::make_unique<Cylinder>(
+            glm::vec3(0.0f, 0.2f, 0.0f),     // posição
+            glm::vec3(-2.0f, 0.0f, 0.0f),    // rotação (eixo)
+            glm::vec3(0.05f, 0.6, 0.05f),     // escala
+            45  // Angulo
+        ));
+    else if (angle == 3.0f)
+        parts.push_back(std::make_unique<Cylinder>(
+            glm::vec3(0.0f, 0.2f, 0.0f),     // posição
+            glm::vec3(0.0f, 0.0f, -2.0f),    // rotação (eixo)
+            glm::vec3(0.05f, 0.6, 0.05f),     // escala
+            45  // Angulo
+        ));
     parts.push_back(std::make_unique<Cube>(
-        glm::vec3(-0.15f, 0.0f, -0.2f),     // posição
+        glm::vec3(0.0, 0.0f, 0.0),     // posição
         glm::vec3(0.0f, 0.0f, 0.0),    // rotação (eixo)
-        glm::vec3(0.5f, 0.5f, 0.1f),      // escala
+        glm::vec3(0.5f, 0.1f, 0.5f),      // escala
         0  // Angulo
     ));
 }

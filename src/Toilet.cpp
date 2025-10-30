@@ -20,19 +20,24 @@ Toilet::Toilet(glm::vec3 pos, float angle)
 
 void Toilet::init() {
     parts.push_back(std::make_unique<Cylinder>(
+        glm::vec3(0.0f, 0.35f, 0.0f),     // posição
+        glm::vec3(0.0f, 0.0f, 0.0f),      // rotação (eixo)
+        glm::vec3(1.1f, 0.6f, 1.1f),      // escala
+        0   // Angulo
+    ));
+    parts.push_back(std::make_unique<Cylinder>(
         glm::vec3(0.0f, 0.0f, 0.0f),     // posição
-        glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
-        glm::vec3(1.1f, 1.0f, 1.1f),      // escala
-        90   // Angulo
+        glm::vec3(0.0f, 0.0f, 0.0f),      // rotação (eixo)
+        glm::vec3(0.8f, 0.3f, 0.8f),      // escala
+        0   // Angulo
     ));
 
-    if (angle == 0.0f)
-        parts.push_back(std::make_unique<Cube>(
-            glm::vec3(0.0f, 0.5f, 0.8f),     // posição
-            glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
-            glm::vec3(1.1f, 1.1f, 0.5f),      // escala
-            90   // Angulo
-        ));
+    parts.push_back(std::make_unique<Cube>(
+        glm::vec3(0.0f, 0.8f, 0.5f),     // posição
+        glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
+        glm::vec3(1.1f, 1.1f, 0.5f),      // escala
+        0   // Angulo
+    ));
 }
 
 void Toilet::draw(Shader &shader, glm::mat4 model) {
