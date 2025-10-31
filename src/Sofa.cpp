@@ -3,7 +3,7 @@
 #include "Cylinder.h"
 
 extern unsigned int steelTexture;
-extern unsigned int fabricTexture;
+extern unsigned int fabricTexture1;
 
 Sofa::Sofa(glm::vec3 pos, glm::vec3 rot, glm::vec3 scl, float angle)
     : Object(pos, rot, scl, angle)
@@ -147,7 +147,7 @@ void Sofa::draw(Shader &shader, glm::mat4 model) {
     model = glm::translate(model, position);
     model = glm::scale(model, scale);
 
-    glBindTexture(GL_TEXTURE_2D, fabricTexture);
+    glBindTexture(GL_TEXTURE_2D, fabricTexture1);
     for (int i = 0; i < 4; i ++)
         parts[i]->draw(shader, model);
 
