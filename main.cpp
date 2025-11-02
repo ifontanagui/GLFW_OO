@@ -8,7 +8,7 @@
 #include <Shader.h>
 #include <Application.h>
 #include <Texture.h>
-#include <Cube.h>
+#include <GenCube.h>
 //
 #include <Sofa.h>               //01
 #include <Lighting.h>           //02
@@ -69,23 +69,23 @@ int main() {
     ceramicsTexture = loadTexture("ceramics.jpg");
     steelTexture1 = loadTexture("steel1.jpg");
     steelTexture2 = loadTexture("steel2.jpg");
-    Texture quadriTexture("wall.jpg");
+    unsigned int wallTexture = loadTexture("wall.jpg");
 
 
     shader.setInt("texture1", 0);
 
     // Paredes
-    Cube cube1(glm::vec3(6.9f, 0.0f, 2.5f));
-    Cube cube2(glm::vec3(2.5f, 0.0f, 0.0f));
-    Cube cube3(glm::vec3(0.0f, 0.0f, 4.9f));
-    Cube cube4(glm::vec3(2.0f, 0.0f, 3.9f));
-    Cube cube5(glm::vec3(2.0f, 0.0f, 0.7f));
-    Cube cube6(glm::vec3(-7.0f, 0.0f, 0.0f));
-    Cube cube7(glm::vec3(-1.0f, 0.0f, -4.9f));
-    Cube cube8(glm::vec3(5.0f, 0.0f, -4.0f));
-    Cube cube9(glm::vec3(5.0f, 0.0f, -0.7f));
-    Cube cube10(glm::vec3(-5.4f, 0.0f, 0.0f));
-    Cube cube11(glm::vec3(5.0, -0.75f, 2.5f));
+    GenCube wall1(glm::vec3(6.9f, 0.0f, 2.5f));
+    GenCube wall2(glm::vec3(2.5f, 0.0f, 0.0f));
+    GenCube wall3(glm::vec3(0.0f, 0.0f, 4.9f));
+    GenCube wall4(glm::vec3(2.0f, 0.0f, 3.9f));
+    GenCube wall5(glm::vec3(2.0f, 0.0f, 0.7f));
+    GenCube wall6(glm::vec3(-7.0f, 0.0f, 0.0f));
+    GenCube wall7(glm::vec3(-1.0f, 0.0f, -4.9f));
+    GenCube wall8(glm::vec3(5.0f, 0.0f, -4.0f));
+    GenCube wall9(glm::vec3(5.0f, 0.0f, -0.7f));
+    GenCube wall10(glm::vec3(-5.4f, 0.0f, 0.0f));
+    GenCube wall11(glm::vec3(5.0, -0.75f, 2.5f));
 
     // Sala
     Sofa sofa1(glm::vec3(0.0f, -1.45f, -0.5f), 0.0f);
@@ -151,17 +151,17 @@ int main() {
         glm::mat4 model = glm::mat4(2.0f);
 
         // Paredes
-        cube1.scale = glm::vec3(0.25f, 3.5f, 5.0f);
-        cube2.scale = glm::vec3(9.0f, 3.5f, 0.25f);
-        cube3.scale = glm::vec3(14.0f, 3.5f, 0.25f);
-        cube4.scale = glm::vec3(0.25f, 3.5f, 2.0f);
-        cube5.scale = glm::vec3(0.25f, 3.5f, 1.5f);
-        cube6.scale = glm::vec3(0.25f, 3.5f, 10.0f);
-        cube7.scale = glm::vec3(12.0f, 3.5f, 0.25f);
-        cube8.scale = glm::vec3(0.25, 3.5f, 2.0f);
-        cube9.scale = glm::vec3(0.25, 3.5f, 1.5f);
-        cube10.scale = glm::vec3(3.0f, 3.5f, 0.25f);
-        cube11.scale = glm::vec3(0.15f, 2.0f, 2.5f);
+        wall1.scale = glm::vec3(0.25f, 3.5f, 5.0f);
+        wall2.scale = glm::vec3(9.0f, 3.5f, 0.25f);
+        wall3.scale = glm::vec3(14.0f, 3.5f, 0.25f);
+        wall4.scale = glm::vec3(0.25f, 3.5f, 2.0f);
+        wall5.scale = glm::vec3(0.25f, 3.5f, 1.5f);
+        wall6.scale = glm::vec3(0.25f, 3.5f, 10.0f);
+        wall7.scale = glm::vec3(12.0f, 3.5f, 0.25f);
+        wall8.scale = glm::vec3(0.25, 3.5f, 2.0f);
+        wall9.scale = glm::vec3(0.25, 3.5f, 1.5f);
+        wall10.scale = glm::vec3(3.0f, 3.5f, 0.25f);
+        wall11.scale = glm::vec3(0.15f, 2.0f, 2.5f);
 
         // Sala
         sofa1.scale = glm::vec3(0.5f, 0.5f, 0.5f);
@@ -197,17 +197,17 @@ int main() {
         shader.setMat4("model", model);
 
         // Paredes
-        cube1.draw(shader, model);
-        cube2.draw(shader, model);
-        cube3.draw(shader, model);
-        cube4.draw(shader, model);
-        cube5.draw(shader, model);
-        cube6.draw(shader, model);
-        cube7.draw(shader, model);
-        cube8.draw(shader, model);
-        cube9.draw(shader, model);
-        cube10.draw(shader, model);
-        cube11.draw(shader, model);
+        wall1.draw(shader, model, wallTexture);
+        wall2.draw(shader, model, wallTexture);
+        wall3.draw(shader, model, wallTexture);
+        wall4.draw(shader, model, wallTexture);
+        wall5.draw(shader, model, wallTexture);
+        wall6.draw(shader, model, wallTexture);
+        wall7.draw(shader, model, wallTexture);
+        wall8.draw(shader, model, wallTexture);
+        wall9.draw(shader, model, wallTexture);
+        wall10.draw(shader, model, wallTexture);
+        wall11.draw(shader, model, wallTexture);
 
         // Sala
         sofa1.draw(shader, model);
