@@ -5,7 +5,7 @@
 extern unsigned int woodTexture1;
 extern unsigned int woodTexture2;
 extern unsigned int ceramicsTexture;
-extern unsigned int steelTexture;
+extern unsigned int steelTexture1;
 
 Countertop::Countertop(glm::vec3 pos, glm::vec3 rot, glm::vec3 scl, float angle)
     : Object(pos, rot, scl, angle)
@@ -38,7 +38,7 @@ void Countertop::init() {
     parts.push_back(std::make_unique<Cube>(
         glm::vec3(0.0f, 0.0f, 0.0f),     // posição
         glm::vec3(0.0f, 1.0f, 0.0f),      // rotação (eixo)
-        glm::vec3(3.0f, 1.2f, 0.8f),      // escala
+        glm::vec3(5.0f, 1.2f, 0.8f),      // escala
         a   // Angulo
     ));
 
@@ -46,25 +46,25 @@ void Countertop::init() {
         parts.push_back(std::make_unique<Cylinder>(
             glm::vec3(-0.6f, 0.5f, 0.0f),     // posição
             glm::vec3(0.0f, 0.0f, 0.0f),      // rotação (eixo)
-            glm::vec3(0.6f, 0.4f, 0.6f),      // escala
+            glm::vec3(1.1f, 0.4f, 0.6f),      // escala
             0   // Angulo
         ));
         parts.push_back(std::make_unique<Cube>(
-            glm::vec3(0.9f, 0.45f, 0.0f),     // posição
+            glm::vec3(1.7f, 0.45f, 0.0f),     // posição
             glm::vec3(0.0f, 0.0f, 0.0f),      // rotação (eixo)
             glm::vec3(0.75f, 0.4f, 0.75f),      // escala
             0   // Angulo
         ));
         parts.push_back(std::make_unique<Cube>(
-            glm::vec3(0.7f, 0.0f, 0.4f),     // posição
+            glm::vec3(1.2f, 0.0f, 0.4f),     // posição
             glm::vec3(0.0f, 0.0f, 0.0f),      // rotação (eixo)
-            glm::vec3(1.3f, 1.0f, 0.1f),      // escala
+            glm::vec3(2.3f, 1.0f, 0.1f),      // escala
             0   // Angulo
         ));
         parts.push_back(std::make_unique<Cube>(
-            glm::vec3(-0.7f, 0.0f, 0.4f),     // posição
+            glm::vec3(-1.2f, 0.0f, 0.4f),     // posição
             glm::vec3(0.0f, 0.0f, 0.0f),      // rotação (eixo)
-            glm::vec3(1.3f, 1.0f, 0.1f),      // escala
+            glm::vec3(2.3f, 1.0f, 0.1f),      // escala
             0   // Angulo
         ));
     }
@@ -72,25 +72,25 @@ void Countertop::init() {
         parts.push_back(std::make_unique<Cylinder>(
             glm::vec3(0.0f, 0.5f, -0.6f),     // posição
             glm::vec3(0.0f, 0.0f, 0.0f),      // rotação (eixo)
-            glm::vec3(0.6f, 0.4f, 0.6f),      // escala
+            glm::vec3(0.6f, 0.4f, 1.1f),      // escala
             0   // Angulo
         ));
         parts.push_back(std::make_unique<Cube>(
-            glm::vec3(0.0f, 0.45f, 0.9f),     // posição
+            glm::vec3(0.0f, 0.45f, 1.7f),     // posição
             glm::vec3(0.0f, 0.0f, 0.0f),      // rotação (eixo)
             glm::vec3(0.75f, 0.4f, 0.75f),      // escala
             0   // Angulo
         ));
         parts.push_back(std::make_unique<Cube>(
-            glm::vec3(0.4f, 0.0f, 0.7f),     // posição
+            glm::vec3(0.4f, 0.0f, 1.2f),     // posição
             glm::vec3(0.0f, 1.0f, 0.0f),      // rotação (eixo)
-            glm::vec3(1.3f, 1.0f, 0.1f),      // escala
+            glm::vec3(2.3f, 1.0f, 0.1f),      // escala
             90   // Angulo
         ));
         parts.push_back(std::make_unique<Cube>(
-            glm::vec3(0.4f, 0.0f, -0.7f),     // posição
+            glm::vec3(0.4f, 0.0f, -1.2f),     // posição
             glm::vec3(0.0f, 1.0f, 0.0f),      // rotação (eixo)
-            glm::vec3(1.3f, 1.0f, 0.1f),      // escala
+            glm::vec3(2.3f, 1.0f, 0.1f),      // escala
             90   // Angulo
         ));
     }
@@ -98,25 +98,25 @@ void Countertop::init() {
         parts.push_back(std::make_unique<Cylinder>(
             glm::vec3(0.6f, 0.5f, 0.0f),     // posição
             glm::vec3(0.0f, 0.0f, 0.0f),      // rotação (eixo)
-            glm::vec3(0.6f, 0.4f, 0.6f),      // escala
+            glm::vec3(1.1f, 0.4f, 0.6f),      // escala
             0   // Angulo
         ));
         parts.push_back(std::make_unique<Cube>(
-            glm::vec3(-0.9f, 0.45f, 0.0f),     // posição
+            glm::vec3(-1.7f, 0.45f, 0.0f),     // posição
             glm::vec3(0.0f, 0.0f, 0.0f),      // rotação (eixo)
             glm::vec3(0.75f, 0.4f, 0.75f),      // escala
             0   // Angulo
         ));
         parts.push_back(std::make_unique<Cube>(
-            glm::vec3(0.7f, 0.0f, -0.4f),     // posição
+            glm::vec3(1.2f, 0.0f, -0.4f),     // posição
             glm::vec3(0.0f, 0.0f, 0.0f),      // rotação (eixo)
-            glm::vec3(1.3f, 1.0f, 0.1f),      // escala
+            glm::vec3(2.3f, 1.0f, 0.1f),      // escala
             0   // Angulo
         ));
         parts.push_back(std::make_unique<Cube>(
-            glm::vec3(-0.7f, 0.0f, -0.4f),     // posição
+            glm::vec3(-1.2f, 0.0f, -0.4f),     // posição
             glm::vec3(0.0f, 0.0f, 0.0f),      // rotação (eixo)
-            glm::vec3(1.3f, 1.0f, 0.1f),      // escala
+            glm::vec3(2.3f, 1.0f, 0.1f),      // escala
             0   // Angulo
         ));
     }
@@ -124,25 +124,25 @@ void Countertop::init() {
         parts.push_back(std::make_unique<Cylinder>(
             glm::vec3(0.0f, 0.5f, 0.6f),     // posição
             glm::vec3(0.0f, 0.0f, 0.0f),      // rotação (eixo)
-            glm::vec3(0.6f, 0.4f, 0.6f),      // escala
+            glm::vec3(0.6f, 0.4f, 1.1f),      // escala
             0   // Angulo
         ));
         parts.push_back(std::make_unique<Cube>(
-            glm::vec3(0.0f, 0.45f, -0.9f),     // posição
+            glm::vec3(0.0f, 0.45f, -1.7f),     // posição
             glm::vec3(0.0f, 0.0f, 0.0f),      // rotação (eixo)
             glm::vec3(0.75f, 0.4f, 0.75f),      // escala
             0   // Angulo
         ));
         parts.push_back(std::make_unique<Cube>(
-            glm::vec3(-0.4f, 0.0f, 0.7f),     // posição
+            glm::vec3(-0.4f, 0.0f, 1.2f),     // posição
             glm::vec3(0.0f, 1.0f, 0.0f),      // rotação (eixo)
-            glm::vec3(1.3f, 1.0f, 0.1f),      // escala
+            glm::vec3(2.3f, 1.0f, 0.1f),      // escala
             90   // Angulo
         ));
         parts.push_back(std::make_unique<Cube>(
-            glm::vec3(-0.4f, 0.0f, -0.7f),     // posição
+            glm::vec3(-0.4f, 0.0f, 1.2f),     // posição
             glm::vec3(0.0f, 1.0f, 0.0f),      // rotação (eixo)
-            glm::vec3(1.3f, 1.0f, 0.1f),      // escala
+            glm::vec3(2.3f, 1.0f, 0.1f),      // escala
             90   // Angulo
         ));
     }
@@ -156,7 +156,7 @@ void Countertop::draw(Shader &shader, glm::mat4 model) {
     parts[0]->draw(shader, model);
     glBindTexture(GL_TEXTURE_2D, ceramicsTexture);
     parts[1]->draw(shader, model);
-    glBindTexture(GL_TEXTURE_2D, steelTexture);
+    glBindTexture(GL_TEXTURE_2D, steelTexture1);
     parts[2]->draw(shader, model);
     glBindTexture(GL_TEXTURE_2D, woodTexture1);
     parts[3]->draw(shader, model);

@@ -32,12 +32,34 @@ void Toilet::init() {
         0   // Angulo
     ));
 
-    parts.push_back(std::make_unique<Cube>(
-        glm::vec3(0.0f, 0.8f, 0.5f),     // posição
-        glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
-        glm::vec3(1.1f, 1.1f, 0.5f),      // escala
-        0   // Angulo
-    ));
+    if (angle == 0.0f)
+        parts.push_back(std::make_unique<Cube>(
+            glm::vec3(0.0f, 0.8f, 0.5f),     // posição
+            glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
+            glm::vec3(1.1f, 1.1f, 0.5f),      // escala
+            0   // Angulo
+        ));
+    else if (angle == 1.0f)
+        parts.push_back(std::make_unique<Cube>(
+            glm::vec3(0.5f, 0.8f, 0.0f),     // posição
+            glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
+            glm::vec3(0.5f, 1.1f, 1.1f),      // escala
+            0   // Angulo
+        ));
+    else if (angle == 2.0f)
+        parts.push_back(std::make_unique<Cube>(
+            glm::vec3(0.0f, 0.8f, -0.5f),     // posição
+            glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
+            glm::vec3(1.1f, 1.1f, 0.5f),      // escala
+            0   // Angulo
+        ));
+    else if (angle == 3.0f)
+        parts.push_back(std::make_unique<Cube>(
+            glm::vec3(-0.5f, 0.8f, 0.0f),     // posição
+            glm::vec3(1.0f, 0.0f, 0.0f),      // rotação (eixo)
+            glm::vec3(0.5f, 1.1f, 1.1f),      // escala
+            0   // Angulo
+        ));
 }
 
 void Toilet::draw(Shader &shader, glm::mat4 model) {

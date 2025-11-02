@@ -23,9 +23,12 @@
 #include <Shower.h>             //11
 
 
-unsigned int woodTexture;
-unsigned int steelTexture;
-unsigned int fabricTexture;
+unsigned int woodTexture1;
+unsigned int woodTexture2;
+unsigned int steelTexture1;
+unsigned int steelTexture2;
+unsigned int fabricTexture1;
+unsigned int fabricTexture2;
 unsigned int lightTexture;
 unsigned int quadriTexture;
 unsigned int ceramicsTexture;
@@ -34,12 +37,12 @@ float angulo_visao = 45.0f;
 float near_plane = 0.1f;
 float far_plane = 100.0f;
 
-float sensitivity = 0.2f;
+float sensitivity = 0.1f;
 float yaw = -90.0f;
-float pitch = 0.0f;
+float pitch = -90.0f;
 
-glm::vec3 cameraPos = glm::vec3(-3.0f, -2.0f, 0.0f);
-glm::vec3 cameraFront = glm::vec3(-1.0f, 0.0f, 0.0f);
+glm::vec3 cameraPos = glm::vec3(0.0f, 20.0f, 2.0f);
+glm::vec3 cameraFront = glm::vec3(1.0f, 0.0f, 0.0f);
 glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
 
 
@@ -58,67 +61,61 @@ int main() {
     glEnable(GL_DEPTH_TEST);
 
     // Carrega texturas
-    Texture quadriTexture("quadri.jpg");
-    woodTexture = loadTexture("wood.png");
-    if (!woodTexture)
-        std::cout << "Failed to load wood texture!\n";
-    steelTexture = loadTexture("steel.jpg");
-    if (!steelTexture)
-        std::cout << "Failed to load steel texture!\n";
-    fabricTexture = loadTexture("fabric.jpg");
-    if (!fabricTexture)
-        std::cout << "Failed to load fabric texture!\n";
+    woodTexture1 = loadTexture("wood2.jpg");
+    woodTexture2 = loadTexture("wood1.png");
+    fabricTexture1 = loadTexture("fabric1.jpg");
+    fabricTexture2 = loadTexture("fabric2.jpg");
     lightTexture = loadTexture("light.jpg");
-    if (!lightTexture)
-        std::cout << "Failed to load light texture!\n";
     ceramicsTexture = loadTexture("ceramics.jpg");
-    if (!ceramicsTexture)
-        std::cout << "Failed to load ceramics texture!\n";
+    steelTexture1 = loadTexture("steel1.jpg");
+    steelTexture2 = loadTexture("steel2.jpg");
+    Texture quadriTexture("wall.jpg");
 
 
     shader.setInt("texture1", 0);
 
     // Paredes
-    Cube cube1(glm::vec3(6.9f, -2.0f, -2.5f));
-    Cube cube2(glm::vec3(2.5f, 0.5f, -2.5f));
-    Cube cube3(glm::vec3(0.0f, -4.5f, -2.5f));
-    Cube cube4(glm::vec3(2.0f, -3.25f, -2.5f));
-    Cube cube5(glm::vec3(2.0f, -0.25f, -2.5f));
-    Cube cube6(glm::vec3(-7.0f, 0.4f, -2.5f));
-    Cube cube7(glm::vec3(-1.1f, 5.5f, -2.5f));
-    Cube cube8(glm::vec3(4.75f,4.5f, -2.5f));
-    Cube cube9(glm::vec3(4.75f, 1.25f, -2.5f));
-    Cube cube10(glm::vec3(-5.5f, 0.5f, -2.5f));
-    Cube cube11(glm::vec3(4.75f, -1.8f, -3.3f));
+    Cube cube1(glm::vec3(6.9f, 0.0f, 2.5f));
+    Cube cube2(glm::vec3(2.5f, 0.0f, 0.0f));
+    Cube cube3(glm::vec3(0.0f, 0.0f, 4.9f));
+    Cube cube4(glm::vec3(2.0f, 0.0f, 3.9f));
+    Cube cube5(glm::vec3(2.0f, 0.0f, 0.7f));
+    Cube cube6(glm::vec3(-7.0f, 0.0f, 0.0f));
+    Cube cube7(glm::vec3(-1.0f, 0.0f, -4.9f));
+    Cube cube8(glm::vec3(5.0f, 0.0f, -4.0f));
+    Cube cube9(glm::vec3(5.0f, 0.0f, -0.7f));
+    Cube cube10(glm::vec3(-5.4f, 0.0f, 0.0f));
+    Cube cube11(glm::vec3(5.0, -0.75f, 2.5f));
 
     // Sala
-    Sofa sofa1(glm::vec3(0.0f, 1.0f, -4.0f), 2.0f);
-    Sofa sofa2(glm::vec3(2.5f, 1.0f, -4.0f), 2.0f);
-    Sofa sofa3(glm::vec3(1.0f, 4.9f, -4.0f), 0.0f);
-    Lighting ligh1(glm::vec3(1.3f, 1.0f, -3.5f));
+    Sofa sofa1(glm::vec3(0.0f, -1.45f, -0.5f), 0.0f);
+    Sofa sofa2(glm::vec3(2.5f, -1.45f, -0.5f), 0.0f);
+    Sofa sofa3(glm::vec3(1.3f, -1.45f, -4.35f), 2.0f);
+    Lighting ligh1(glm::vec3(1.3f, -1.7f, -0.6f));
 
     // Cozinha
-    Countertop ctop1(glm::vec3(-6.55f, 2.5f, -3.9f), 1.0f);
-    Table table1(glm::vec3(-3.5f, 3.0f, -3.8f));
-    Chair chair1(glm::vec3(-4.0f, 3.8f, -4.0f), 0.0f);
-    Chair chair2(glm::vec3(-3.0f, 3.8f, -4.0f), 0.0f);
-    Chair chair3(glm::vec3(-3.0f, 2.25f, -4.0f), 2.0f);
-    Chair chair4(glm::vec3(-4.0f, 2.25f, -4.0f), 2.0f);
-    Refrigerator ref1(glm::vec3(-6.55f, 4.8f, -3.5f), 1.0f);
-    Closet closet1(glm::vec3(-6.55f, 2.2f, -2.3f), 0.0f);
+    Countertop ctop1(glm::vec3(-6.4f, -1.0f, -1.65f), 1.0f);
+    Refrigerator ref1(glm::vec3(-6.5f, -0.18f, -4.0f), 3.0f);
+    Closet closet1(glm::vec3(-6.4f, 1.05f, -1.65f), 1.0f);
+    Table table1(glm::vec3(-3.5f, -1.35f, -2.7f));
+    Chair chair1(glm::vec3(-4.0f, -1.5f, -3.5f), 2.0f);
+    Chair chair2(glm::vec3(-3.0f, -1.5f, -3.5f), 2.0f);
+    Chair chair3(glm::vec3(-3.0f, -1.5f, -1.9f), 0.0f);
+    Chair chair4(glm::vec3(-4.0f, -1.5f, -1.9f), 0.0f);
 
     //Quarto
-    Bed bed1(glm::vec3(-5.55f, -2.5f, -4.2f), 0.0f);
-    Lighting ligh2(glm::vec3(-6.5f, -1.3f, -3.5f));
-    Lighting ligh3(glm::vec3(-6.5f, -3.7f, -3.5f));
-    Table table2(glm::vec3(0.0, -3.8f, -3.8f));
-    Chair chair5(glm::vec3(0.0f, -3.2f, -4.0f), 0.0f);
-    Closet closet2(glm::vec3(0.3f, -0.2f, -2.9f), 1.0f);
+    Bed bed1(glm::vec3(-5.6f, -1.6f, 3.3f), 2.0f);
+    Lighting ligh2(glm::vec3(-6.5f, -1.7f, 4.5f));
+    Lighting ligh3(glm::vec3(-6.5f, -1.7f, 2.2f));
+    Table table2(glm::vec3(-6.3, -1.35f, 0.7f));
+    Chair chair5(glm::vec3(-5.5f, -1.5f, 0.7f), 1.0f);
+    Closet closet2(glm::vec3(-0.1f, -0.1f, 0.6f), 0.0f);
+    Closet closet3(glm::vec3(-0.1f, -0.1f, 4.0f), 2.0f);
 
     //Banheiro
-    Toilet toilet1(glm::vec3(3.0f, 0.0f, -4.0f), 0.0f);
-    Sink sink1(glm::vec3(3.0f, -4.1f, -3.95f), 0.0f);
-    Shower shower1(glm::vec3(6.7f, -1.7f, -1.7f), 0.0f);
+    Toilet toilet1(glm::vec3(3.0f, -1.65f, 0.65f), 2.0f);
+    Sink sink1(glm::vec3(3.0f, -1.15f, 4.4f), 2.0f);
+    Shower shower1(glm::vec3(6.5f, 1.0f, 2.5f), 3.0f);
 
     // Ativa depth test
     glEnable(GL_DEPTH_TEST);
@@ -128,7 +125,6 @@ int main() {
 
     // Loop principal
     while (!glfwWindowShouldClose(app.getWindow())) {
-
 
         processInput(window);
 
@@ -155,17 +151,17 @@ int main() {
         glm::mat4 model = glm::mat4(2.0f);
 
         // Paredes
-        cube1.scale = glm::vec3(0.25f, 5.0f, 3.5f);
-        cube2.scale = glm::vec3(9.0f, 0.25f, 3.5f);
-        cube3.scale = glm::vec3(14.0f, 0.25f, 3.5f);
-        cube4.scale = glm::vec3(0.25f, 2.5f, 3.5f);
-        cube5.scale = glm::vec3(0.25f, 1.5f, 3.5f);
-        cube6.scale = glm::vec3(0.25f, 10.0f, 3.5f);
-        cube7.scale = glm::vec3(12.0f, 0.25f, 3.5f);
-        cube8.scale = glm::vec3(0.25, 2.0f, 3.5f);
-        cube9.scale = glm::vec3(0.25, 1.5f, 3.5f);
-        cube10.scale = glm::vec3(3.0f, 0.25f, 3.5f);
-        cube11.scale = glm::vec3(0.15f, 2.5f, 2.0f);
+        cube1.scale = glm::vec3(0.25f, 3.5f, 5.0f);
+        cube2.scale = glm::vec3(9.0f, 3.5f, 0.25f);
+        cube3.scale = glm::vec3(14.0f, 3.5f, 0.25f);
+        cube4.scale = glm::vec3(0.25f, 3.5f, 2.0f);
+        cube5.scale = glm::vec3(0.25f, 3.5f, 1.5f);
+        cube6.scale = glm::vec3(0.25f, 3.5f, 10.0f);
+        cube7.scale = glm::vec3(12.0f, 3.5f, 0.25f);
+        cube8.scale = glm::vec3(0.25, 3.5f, 2.0f);
+        cube9.scale = glm::vec3(0.25, 3.5f, 1.5f);
+        cube10.scale = glm::vec3(3.0f, 3.5f, 0.25f);
+        cube11.scale = glm::vec3(0.15f, 2.0f, 2.5f);
 
         // Sala
         sofa1.scale = glm::vec3(0.5f, 0.5f, 0.5f);
@@ -174,26 +170,27 @@ int main() {
         ligh1.scale = glm::vec3(0.4f, 0.4f, 0.4f);
 
         // Cozinha
-        ctop1.scale = glm::vec3(0.7f, 1.2f, 0.6f);
+        ctop1.scale = glm::vec3(1.0f, 1.2f, 0.6f);
+        ref1.scale = glm::vec3(1.3f, 1.4f, 1.3f);
+        closet1.scale = glm::vec3(0.9f, 0.2, 1.0f);
         table1.scale = glm::vec3(1.2f, 0.5f, 0.6f);
         chair1.scale = glm::vec3(0.3f, 0.3f, 0.3f);
         chair2.scale = glm::vec3(0.3f, 0.3f, 0.3f);
         chair3.scale = glm::vec3(0.3f, 0.3f, 0.3f);
         chair4.scale = glm::vec3(0.3f, 0.3f, 0.3f);
-        ref1.scale = glm::vec3(0.7f, 0.7f, 0.7f);
-        closet1.scale = glm::vec3(0.5f, 1.4f, 0.2f);
 
         // Quarto
-        bed1.scale = glm::vec3(0.8f, 0.8f, 0.6f);
+        bed1.scale = glm::vec3(0.8f, 0.8f, 0.8f);
         ligh2.scale = glm::vec3(0.4f, 0.4f, 0.4f);
         ligh3.scale = glm::vec3(0.4f, 0.4f, 0.4f);
-        table2.scale = glm::vec3(0.5f, 0.4f, 0.6f);
+        table2.scale = glm::vec3(0.5f, 0.5f, 0.5f);
         chair5.scale = glm::vec3(0.3f, 0.3f, 0.3f);
-        closet2.scale = glm::vec3(1.5f, 1.2f, 0.9f);
+        closet2.scale = glm::vec3(1.2f, 1.1f, 0.9f);
+        closet3.scale = glm::vec3(1.3f, 1.1f, 1.3f);
 
         //Banheiro
-        toilet1.scale = glm::vec3(0.4f, 0.4f, 0.4f);
-        sink1.scale = glm::vec3(0.4f, 0.4f, 0.4f);
+        toilet1.scale = glm::vec3(0.6f, 0.6f, 0.6f);
+        sink1.scale = glm::vec3(0.7f, 1.2f, 0.6f);
         shower1.scale = glm::vec3(0.8f, 0.8f, 0.8f);
 
 
@@ -220,13 +217,13 @@ int main() {
 
         // Cozinha
         ctop1.draw(shader, model);
+        ref1.draw(shader, model);
+        closet1.draw(shader, model);
         table1.draw(shader, model);
         chair1.draw(shader, model);
         chair2.draw(shader, model);
         chair3.draw(shader, model);
         chair4.draw(shader, model);
-        ref1.draw(shader, model);
-        closet1.draw(shader, model);
 
         // Quarto
         bed1.draw(shader, model);
@@ -235,6 +232,7 @@ int main() {
         table2.draw(shader, model);
         chair5.draw(shader, model);
         closet2.draw(shader, model);
+        closet3.draw(shader, model);
 
         //Banheiro
         toilet1.draw(shader, model);
@@ -256,53 +254,29 @@ void processInput(GLFWwindow *window)
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
 
-    if (glfwGetKey(window, GLFW_KEY_KP_ADD) == GLFW_PRESS)
-        angulo_visao++;
+    if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
+        cameraPos = glm::vec3(0.0f, 0.0f, 2.0f);
 
-    if (glfwGetKey(window, GLFW_KEY_KP_SUBTRACT) == GLFW_PRESS)
-        angulo_visao--;
-
-    if (glfwGetKey(window, GLFW_KEY_KP_MULTIPLY) == GLFW_PRESS)
-        far_plane++;
-
-    if (glfwGetKey(window, GLFW_KEY_KP_DIVIDE) == GLFW_PRESS)
-        far_plane--;
-
-    if (glfwGetKey(window, GLFW_KEY_KP_8) == GLFW_PRESS) {
-        near_plane+=0.1f;
-        printf("%f\n", near_plane);
-    }
-
-    if (glfwGetKey(window, GLFW_KEY_KP_9) == GLFW_PRESS) {
-        near_plane-=0.1f;
-        printf("%f\n", near_plane);
-    }
-
-    if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS) {
-        //angulo_visao = 45.0f;
-        //near_plane=0.1f;
-        //far_plane=100;
-        printf("%.2f %f %f\n", angulo_visao, near_plane, far_plane);
-    }
-
-    const float camSpeed = 0.05f;
+    const float camSpeed = 0.005;
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-    cameraPos += camSpeed * cameraFront;
+        cameraPos += camSpeed * cameraFront;
     if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-    cameraPos -= camSpeed * cameraFront;
+        cameraPos -= camSpeed * cameraFront;
     if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-    cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * camSpeed;
+        cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * camSpeed;
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-    cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * camSpeed;
+        cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * camSpeed;
+
+    //std::cout <<cameraPos.y << "\n";
 
     if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
-    viraCamera(0.0f, 1.0f);
+        viraCamera(0.0f, 1.0f);
     if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
-    viraCamera(0.0f, -1.0f);
+        viraCamera(0.0f, -1.0f);
     if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
-    viraCamera(-1.0f, 0.0f);
+        viraCamera(-1.0f, 0.0f);
     if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
-    viraCamera(1.0f, 0.0f);
+        viraCamera(1.0f, 0.0f);
 }
 
 void viraCamera(float x, float y)
@@ -310,10 +284,10 @@ void viraCamera(float x, float y)
     yaw += x * sensitivity;
     pitch += y * sensitivity;
 
-    if(pitch > 180.0f)
-        pitch = 179.0f;
-    if(pitch < 0.0f)
-        pitch = 1.0f;
+    if(pitch > 89.0f)
+        pitch = 89.0f;
+    if(pitch < -89.0f)
+        pitch = -89.0f;
 
     glm::vec3 direction;
     direction.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));

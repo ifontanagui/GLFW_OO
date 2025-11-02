@@ -3,7 +3,7 @@
 #include "Cylinder.h"
 
 extern unsigned int woodTexture2;
-extern unsigned int steelTexture;
+extern unsigned int steelTexture2;
 
 Table::Table(glm::vec3 pos, glm::vec3 rot, glm::vec3 scl, float angle)
     : Object(pos, rot, scl, angle)
@@ -59,7 +59,7 @@ void Table::draw(Shader &shader, glm::mat4 model) {
     glBindTexture(GL_TEXTURE_2D, woodTexture2);
     parts[0]->draw(shader, model);
 
-    glBindTexture(GL_TEXTURE_2D, steelTexture);
+    glBindTexture(GL_TEXTURE_2D, steelTexture2);
     for (int i = 1; i < 5; i ++)
         parts[i]->draw(shader, model);
 }

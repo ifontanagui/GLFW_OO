@@ -3,7 +3,7 @@
 #include "Cylinder.h"
 
 extern unsigned int woodTexture2;
-extern unsigned int steelTexture;
+extern unsigned int steelTexture2;
 
 Chair::Chair(glm::vec3 pos, glm::vec3 rot, glm::vec3 scl, float angle)
     : Object(pos, rot, scl, angle)
@@ -165,7 +165,7 @@ void Chair::draw(Shader &shader, glm::mat4 model) {
     parts[0]->draw(shader, model);
     parts[5]->draw(shader, model);
 
-    glBindTexture(GL_TEXTURE_2D, steelTexture);
+    glBindTexture(GL_TEXTURE_2D, steelTexture2);
     for (int i = 1; i < 5; i ++)
         parts[i]->draw(shader, model);
 }
