@@ -50,6 +50,7 @@
 		<Unit filename="include/Banrisul.h" />
 		<Unit filename="include/Bed.h" />
 		<Unit filename="include/Cabinets.h" />
+		<Unit filename="include/Carpet.h" />
 		<Unit filename="include/Chair.h" />
 		<Unit filename="include/Closet.h" />
 		<Unit filename="include/Countertop.h" />
@@ -75,6 +76,7 @@
 		<Unit filename="src/Banrisul.cpp" />
 		<Unit filename="src/Bed.cpp" />
 		<Unit filename="src/Cabinets.cpp" />
+		<Unit filename="src/Carpet.cpp" />
 		<Unit filename="src/Chair.cpp" />
 		<Unit filename="src/Closet.cpp" />
 		<Unit filename="src/Countertop.cpp" />

@@ -21,6 +21,7 @@
 #include <Toilet.h>             //09
 #include <Sink.h>               //10
 #include <Shower.h>             //11
+#include <Carpet.h>             //12
 
 
 unsigned int woodTexture1;
@@ -32,16 +33,17 @@ unsigned int fabricTexture2;
 unsigned int lightTexture;
 unsigned int quadriTexture;
 unsigned int ceramicsTexture;
+unsigned int carpetTexture;
 
 float angulo_visao = 45.0f;
 float near_plane = 0.1f;
 float far_plane = 100.0f;
 
 float sensitivity = 0.1f;
-float yaw = -90.0f;
-float pitch = -90.0f;
+float yaw = 180.0f;
+float pitch = 0.0f;
 
-glm::vec3 cameraPos = glm::vec3(0.0f, 20.0f, 2.0f);
+glm::vec3 cameraPos = glm::vec3(8.0f, 0.0f, -2.0f);
 glm::vec3 cameraFront = glm::vec3(1.0f, 0.0f, 0.0f);
 glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
 
@@ -69,7 +71,11 @@ int main() {
     ceramicsTexture = loadTexture("ceramics.jpg");
     steelTexture1 = loadTexture("steel1.jpg");
     steelTexture2 = loadTexture("steel2.jpg");
+    carpetTexture = loadTexture("carpet.jpg");
     unsigned int wallTexture = loadTexture("wall.jpg");
+    unsigned int glassTexture = loadTexture("glass.jpg");
+    unsigned int floorTexture1 = loadTexture("floor1.jpg");
+    unsigned int floorTexture2 = loadTexture("floor2.jpg");
 
 
     shader.setInt("texture1", 0);
@@ -86,12 +92,15 @@ int main() {
     GenCube wall9(glm::vec3(5.0f, 0.0f, -0.7f));
     GenCube wall10(glm::vec3(-5.4f, 0.0f, 0.0f));
     GenCube wall11(glm::vec3(5.0, -0.75f, 2.5f));
+    GenCube floor1(glm::vec3(-1.0, -1.8f, 0.0f));
+    GenCube floor2(glm::vec3(6.0, -1.8f, 2.5f));
 
     // Sala
     Sofa sofa1(glm::vec3(0.0f, -1.45f, -0.5f), 0.0f);
     Sofa sofa2(glm::vec3(2.5f, -1.45f, -0.5f), 0.0f);
     Sofa sofa3(glm::vec3(1.3f, -1.45f, -4.35f), 2.0f);
     Lighting ligh1(glm::vec3(1.3f, -1.7f, -0.6f));
+    Carpet carpet1(glm::vec3(1.4f, -1.65f, -2.35f));
 
     // Cozinha
     Countertop ctop1(glm::vec3(-6.4f, -1.0f, -1.65f), 1.0f);
@@ -161,13 +170,17 @@ int main() {
         wall8.scale = glm::vec3(0.25, 3.5f, 2.0f);
         wall9.scale = glm::vec3(0.25, 3.5f, 1.5f);
         wall10.scale = glm::vec3(3.0f, 3.5f, 0.25f);
-        wall11.scale = glm::vec3(0.15f, 2.0f, 2.5f);
+        wall11.scale = glm::vec3(0.1f, 2.0f, 2.5f);
+        floor1.scale = glm::vec3(12.0f, 0.2f, 10.0f);
+        floor2.scale = glm::vec3(2.0f, 0.2f, 5.0f);
 
         // Sala
         sofa1.scale = glm::vec3(0.5f, 0.5f, 0.5f);
         sofa2.scale = glm::vec3(0.5f, 0.5f, 0.5f);
         sofa3.scale = glm::vec3(1.5f, 0.5f, 0.5f);
         ligh1.scale = glm::vec3(0.4f, 0.4f, 0.4f);
+        floor2.scale = glm::vec3(2.0f, 0.0f, 5.0f);
+        carpet1.scale = glm::vec3(5.0f, 0.0f, 2.5f);
 
         // Cozinha
         ctop1.scale = glm::vec3(1.0f, 1.2f, 0.6f);
@@ -207,13 +220,16 @@ int main() {
         wall8.draw(shader, model, wallTexture);
         wall9.draw(shader, model, wallTexture);
         wall10.draw(shader, model, wallTexture);
-        wall11.draw(shader, model, wallTexture);
+        wall11.draw(shader, model, glassTexture);
+        floor1.draw(shader, model, floorTexture1);
+        floor2.draw(shader, model, floorTexture2);
 
         // Sala
         sofa1.draw(shader, model);
         sofa2.draw(shader, model);
         sofa3.draw(shader, model);
         ligh1.draw(shader, model);
+        carpet1.draw(shader, model);
 
         // Cozinha
         ctop1.draw(shader, model);
@@ -255,7 +271,7 @@ void processInput(GLFWwindow *window)
         glfwSetWindowShouldClose(window, true);
 
     if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
-        cameraPos = glm::vec3(0.0f, 0.0f, 2.0f);
+        cameraPos = glm::vec3(8.0f, 0.0f, -2.0f);
 
     const float camSpeed = 0.005;
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
@@ -266,8 +282,6 @@ void processInput(GLFWwindow *window)
         cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * camSpeed;
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
         cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * camSpeed;
-
-    //std::cout <<cameraPos.y << "\n";
 
     if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
         viraCamera(0.0f, 1.0f);
