@@ -96,24 +96,24 @@ int main() {
     GenCube floor2(glm::vec3(6.0, -1.8f, 2.5f));
 
     // Sala
-    Sofa sofa1(glm::vec3(0.0f, -1.45f, -0.5f), 0.0f);
-    Sofa sofa2(glm::vec3(2.5f, -1.45f, -0.5f), 0.0f);
-    Sofa sofa3(glm::vec3(1.3f, -1.45f, -4.35f), 2.0f);
+    Sofa sofa1(glm::vec3(0.0f, -1.45f, -0.6f), 0.0f);
+    Sofa sofa2(glm::vec3(2.5f, -1.45f, -0.6f), 0.0f);
+    Sofa sofa3(glm::vec3(1.3f, -1.45f, -4.25f), 2.0f);
     Lighting ligh1(glm::vec3(1.3f, -1.7f, -0.6f));
     Carpet carpet1(glm::vec3(1.4f, -1.65f, -2.35f));
 
     // Cozinha
-    Countertop ctop1(glm::vec3(-6.4f, -1.0f, -1.65f), 1.0f);
+    Countertop ctop1(glm::vec3(-6.4f, -1.1f, -1.65f), 1.0f);
     Refrigerator ref1(glm::vec3(-6.5f, -0.18f, -4.0f), 3.0f);
     Closet closet1(glm::vec3(-6.4f, 1.05f, -1.65f), 1.0f);
-    Table table1(glm::vec3(-3.5f, -1.35f, -2.7f));
+    Table table1(glm::vec3(-3.5f, -1.2f, -2.7f));
     Chair chair1(glm::vec3(-4.0f, -1.5f, -3.5f), 2.0f);
     Chair chair2(glm::vec3(-3.0f, -1.5f, -3.5f), 2.0f);
     Chair chair3(glm::vec3(-3.0f, -1.5f, -1.9f), 0.0f);
     Chair chair4(glm::vec3(-4.0f, -1.5f, -1.9f), 0.0f);
 
     //Quarto
-    Bed bed1(glm::vec3(-5.6f, -1.6f, 3.3f), 2.0f);
+    Bed bed1(glm::vec3(-5.15f, -1.6f, 3.35f), 2.0f);
     Lighting ligh2(glm::vec3(-6.5f, -1.7f, 4.5f));
     Lighting ligh3(glm::vec3(-6.5f, -1.7f, 2.2f));
     Table table2(glm::vec3(-6.3, -1.35f, 0.7f));
@@ -175,25 +175,25 @@ int main() {
         floor2.scale = glm::vec3(2.0f, 0.2f, 5.0f);
 
         // Sala
-        sofa1.scale = glm::vec3(0.5f, 0.5f, 0.5f);
-        sofa2.scale = glm::vec3(0.5f, 0.5f, 0.5f);
-        sofa3.scale = glm::vec3(1.5f, 0.5f, 0.5f);
+        sofa1.scale = glm::vec3(0.5f, 0.5f, 0.7f);
+        sofa2.scale = glm::vec3(0.5f, 0.5f, 0.7f);
+        sofa3.scale = glm::vec3(1.5f, 0.5f, 0.7f);
         ligh1.scale = glm::vec3(0.4f, 0.4f, 0.4f);
         floor2.scale = glm::vec3(2.0f, 0.0f, 5.0f);
-        carpet1.scale = glm::vec3(5.0f, 0.0f, 2.5f);
+        carpet1.scale = glm::vec3(5.0f, 0.0f, 2.2f);
 
         // Cozinha
-        ctop1.scale = glm::vec3(1.0f, 1.2f, 0.6f);
+        ctop1.scale = glm::vec3(1.0f, 1.0f, 0.6f);
         ref1.scale = glm::vec3(1.3f, 1.4f, 1.3f);
         closet1.scale = glm::vec3(0.9f, 0.2, 1.0f);
-        table1.scale = glm::vec3(1.2f, 0.5f, 0.6f);
+        table1.scale = glm::vec3(1.2f, 0.7f, 0.6f);
         chair1.scale = glm::vec3(0.3f, 0.3f, 0.3f);
         chair2.scale = glm::vec3(0.3f, 0.3f, 0.3f);
         chair3.scale = glm::vec3(0.3f, 0.3f, 0.3f);
         chair4.scale = glm::vec3(0.3f, 0.3f, 0.3f);
 
         // Quarto
-        bed1.scale = glm::vec3(0.8f, 0.8f, 0.8f);
+        bed1.scale = glm::vec3(1.1f, 0.8f, 0.95f);
         ligh2.scale = glm::vec3(0.4f, 0.4f, 0.4f);
         ligh3.scale = glm::vec3(0.4f, 0.4f, 0.4f);
         table2.scale = glm::vec3(0.5f, 0.5f, 0.5f);

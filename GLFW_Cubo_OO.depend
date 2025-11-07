@@ -1042,7 +1042,7 @@
 	<glm/gtc/matrix_transform.hpp>
 	<Object.h>
 
-1762131932 source:c:\www\guilherme\cg\glfw_cubo_oo\main.cpp
+1762545021 source:c:\www\guilherme\cg\glfw_cubo_oo\main.cpp
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 	<glm/glm.hpp>
@@ -1065,6 +1065,7 @@
 	<Toilet.h>
 	<Sink.h>
 	<Shower.h>
+	<Carpet.h>
 
 1761178303 c:\www\guilherme\cg\glfw_cubo_oo\include\shader.h
 	<GL/glew.h>
@@ -2297,4 +2298,16 @@
 	"Shader.h"
 	<vector>
 	<memory>
+
+1762132489 c:\www\guilherme\cg\glfw_cubo_oo\include\carpet.h
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	"Object.h"
+	"Shader.h"
+	<vector>
+	<memory>
+
+1762132591 source:c:\www\guilherme\cg\glfw_cubo_oo\src\carpet.cpp
+	"Carpet.h"
+	"Cube.h"
 
