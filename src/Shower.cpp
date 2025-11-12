@@ -2,6 +2,7 @@
 #include "Sphere.h"
 #include "Cube.h"
 #include "Cylinder.h"
+#include "Sphere.h"
 
 extern unsigned int steelTexture2;
 
@@ -53,6 +54,12 @@ void Shower::init() {
         glm::vec3(0.0f, 0.0f, 0.0),    // rota��o (eixo)
         glm::vec3(0.5f, 0.1f, 0.5f),      // escala
         0  // Angulo
+    ));
+    parts.push_back(std::make_unique<Sphere>(
+        glm::vec3(0.25f, -1.5f, 0.0f),     // posição
+        glm::vec3(0.0f, 0.0f, 0.0f),      // rotação (eixo)
+        glm::vec3(0.1f, 0.1f, 0.1f),      // escala
+        0   // Angulo
     ));
 }
 
